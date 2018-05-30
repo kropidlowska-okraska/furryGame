@@ -1,9 +1,9 @@
-var Furry = require("./furry.js");
-var Coin = require("./coins.js");
+const Furry = require("./furry.js");
+const Coin = require("./coins.js");
 
 
 function Game() {
-    var self = this;
+    const self = this;
 
     this.board = document.querySelectorAll("#board div");
     this.furry = new Furry();
@@ -24,7 +24,7 @@ function Game() {
         this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');
     };
 
-    var moveCounter = 0;
+    let moveCounter = 0;
     this.moveFurry = function () {
         if (self.furry.direction === "right") {
             self.furry.x = self.furry.x + 1;
@@ -50,7 +50,7 @@ function Game() {
     };
 
     this.hideVisibleFurry = function () {
-        let furryToHide = document.querySelector('.furry');
+        const furryToHide = document.querySelector('.furry');
         if (furryToHide !== null && furryToHide !== undefined) {
             furryToHide.classList.remove('furry');
         }
@@ -82,7 +82,7 @@ function Game() {
         if ((self.furry.x === self.coin.x) && (self.furry.y === self.coin.y)) {
             this.board[this.index(this.coin.x, this.coin.y)].classList.remove('coin');
             this.score++;
-            var scoreCounter = document.querySelector('#score > div > strong');
+            const scoreCounter = document.querySelector('#score > div > strong');
             scoreCounter.innerText = this.score;
             this.coin = new Coin();
             this.showCoin();
@@ -93,13 +93,13 @@ function Game() {
         if (this.furry.x < 0 || this.furry.x > 9 || this.furry.y < 0 || this.furry.y > 9) {
             clearInterval(SetInerval);
             self.hideVisibleFurry();
-            var lostTime = Math.ceil(250 * moveCounter / 1000);
+            const lostTime = Math.ceil(250 * moveCounter / 1000);
             //console.log(lostTime);
-            alert("Masz problem z prokrastynacja! Stracilas/es " + lostTime + " sek. zycia.");
+            alert("You have been procrastinating! You have lost " + lostTime + " seconds of your life.");
         }
     };
 
-    self.showFurry(); //czy moge wywolywac te funkcje w obiekcie czy lepiej poza nim?
+    self.showFurry();
     self.showCoin();
     self.startGame();
 }
