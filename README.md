@@ -2,6 +2,10 @@
 
 Simple game in JavaScript to  present author's skill and her learning progress. Developed with Webpack.
 
+# Demo
+
+You can find and play the demo of this project on: https://kropidlowska-okraska.github.io/furryGame/
+
 # Rules 
 Show Furry the way to coin and help him collect the biggest amount of precious, golden coins. Watch out for walls, touching the edge of the board means that Furry crashes and he cannot continue his great adventure for treasure. The game ends.
 
